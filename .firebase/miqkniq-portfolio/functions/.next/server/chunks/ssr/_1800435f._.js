@@ -1,3 +1,0 @@
-module.exports=[40959,a=>{"use strict";var b=a.i(7997);function c({className:a,...c}){return(0,b.jsx)("div",{className:function(...a){return a.filter(Boolean).join(" ")}("animate-pulse rounded-md bg-[var(--bg-tertiary)]/50",a),...c})}a.s(["Skeleton",()=>c],40959)},63588,a=>{"use strict";var b=a.i(7997),c=a.i(40959);function d(){return(0,b.jsx)("div",{className:"container mx-auto px-4 sm:px-6 lg:px-8 py-20 flex justify-center items-center min-h-[50vh]",children:(0,b.jsxs)("div",{className:"flex flex-col items-center space-y-6",children:[(0,b.jsx)(c.Skeleton,{className:"h-12 w-12 rounded-full"}),(0,b.jsx)(c.Skeleton,{className:"h-4 w-48"})]})})}a.s(["default",()=>d])}];
-
-//# sourceMappingURL=_1800435f._.js.map
