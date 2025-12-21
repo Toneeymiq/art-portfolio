@@ -5,14 +5,21 @@ import { Autoplay, Pagination, EffectFade } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
-import Image from 'next/image';
 import { Artwork } from '../types/artwork';
+import { getImageUrl, hasValidImage } from '@/lib/utils';
 
 interface HeroSliderProps {
   artworks: Artwork[];
 }
 
 export default function HeroSlider({ artworks }: HeroSliderProps) {
+  // Filter artworks to only those with valid images for the hero slider
+  const validArtworks = artworks.filter(a => hasValidImage(a.cdnUrl, a.imageUrl));
+
+  if (validArtworks.length === 0) {
+    return null; // Don't render slider if no valid images
+  }
+
   return (
     <div className="relative w-full h-[70vh] min-h-[500px] max-h-[600px]">
       <Swiper
@@ -29,23 +36,22 @@ export default function HeroSlider({ artworks }: HeroSliderProps) {
         fadeEffect={{ crossFade: true }}
         className="h-full"
       >
-        {artworks.slice(0, 6).map((artwork) => (
+        {validArtworks.slice(0, 6).map((artwork) => (
           <SwiperSlide key={artwork.id}>
             <div className="relative w-full h-full">
-              <Image
-                src={artwork.cdnUrl || artwork.imageUrl}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={getImageUrl(artwork.cdnUrl, artwork.imageUrl, artwork.id)}
                 alt={artwork.title}
-                fill
-                className="object-cover"
-                priority
+                className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60"></div>
               <div className="absolute bottom-0 left-0 right-0 text-white p-8 md:p-12">
                 <div className="max-w-7xl mx-auto">
-                  <h2 className="text-3xl md:text-5xl font-bold mb-4">{artwork.title}</h2>
-                  <p className="text-lg md:text-xl text-white/90 max-w-2xl mb-6">{artwork.description}</p>
+                  <h2 className="text-2xl md:text-5xl font-bold mb-2 md:mb-4">{artwork.title}</h2>
+                  <p className="text-sm md:text-xl text-white/90 max-w-2xl mb-4 md:mb-6 line-clamp-2 md:line-clamp-none">{artwork.description}</p>
                   <div className="flex flex-wrap gap-2">
-                    {artwork.tags.map((tag) => (
+                    {artwork.tags?.map((tag) => (
                       <span
                         key={tag}
                         className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium"

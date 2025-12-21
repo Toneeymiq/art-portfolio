@@ -1,0 +1,11 @@
+var R=require("../../../chunks/[turbopack]_runtime.js")("server/app/api/artworks/route.js")
+R.c("server/chunks/node_modules_firebase_firestore_dist_index_mjs_02cd568e._.js")
+R.c("server/chunks/node_modules_next_31d30eac._.js")
+R.c("server/chunks/node_modules_@grpc_grpc-js_503239a0._.js")
+R.c("server/chunks/node_modules_protobufjs_d7c441d2._.js")
+R.c("server/chunks/node_modules_@firebase_firestore_dist_index_node_mjs_ae4421f5._.js")
+R.c("server/chunks/node_modules_f094a562._.js")
+R.c("server/chunks/[root-of-the-server]__0527fd2d._.js")
+R.c("server/chunks/_next-internal_server_app_api_artworks_route_actions_ec04796d.js")
+R.m("[project]/node_modules/next/dist/esm/build/templates/app-route.js { INNER_APP_ROUTE => \"[project]/app/api/artworks/route.ts [app-route] (ecmascript)\" } [app-route] (ecmascript)")
+module.exports=R.m("[project]/node_modules/next/dist/esm/build/templates/app-route.js { INNER_APP_ROUTE => \"[project]/app/api/artworks/route.ts [app-route] (ecmascript)\" } [app-route] (ecmascript)").exports
